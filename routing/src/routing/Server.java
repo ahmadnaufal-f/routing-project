@@ -17,7 +17,7 @@ public class Server {
 		ServerSocket s1 = new ServerSocket(8888); //mjust same port as the client port
 		Socket sct = s1.accept();
 		Scanner sc = new Scanner(sct.getInputStream());
-		number=sc.nextInt();
+		number=sc.nextInt(); //storing number
 		
 		temp = number*2;
 		
