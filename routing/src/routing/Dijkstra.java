@@ -1,7 +1,7 @@
 package routing;
 import java.util.Scanner;
 
-public class Djikstra {
+public class Cli {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -20,11 +20,21 @@ public class Djikstra {
 			preD[i]=0;
 			for(int j=0;j<5;j++){
 				
+				if(i == j)
+				{
+					do {
+					System.out.printf("Enter the cost for matrix [%d][%d] (must be 0): ",i,j);
+					matrix[i][j] = scan.nextInt();
+					}while(matrix[i][j]!=0);
+				}
+				
+				else {
 				System.out.printf("Enter the cost for matrix [%d][%d]: ",i,j);
 				matrix[i][j] = scan.nextInt();
 				if(matrix[i][j] == 0){
 				matrix[i][j] = 999; //max value
 					}
+				}
 				
 				}
 			
@@ -70,7 +80,7 @@ public class Djikstra {
 		for(int i=0;i<5;i++){
 			System.out.print("|" + distance[i]);
 		}
-		System.out.print("|");
+		System.out.println("|");
 		
 		for(int i=0;i<5;i++){
 			int j;
