@@ -1,7 +1,7 @@
 package routing;
 import java.util.Scanner;
 
-public class Cli {
+public class Djikstra {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
