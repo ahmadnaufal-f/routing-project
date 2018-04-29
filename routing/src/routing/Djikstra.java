@@ -1,7 +1,7 @@
 package routing;
 import java.util.Scanner;
 
-public class Djikstra {
+public class Djikstra{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -63,8 +63,8 @@ public class Djikstra {
 			
 			
 			for(int x=0;x<5;x++){ //update if the cost added with 
-				           //the neighbouring unvisited node is less than the
-							//previous neighboring node
+				           //the unvisited neighbour node is less than the
+							//previous neighbor node (since a node can connected to more than one other node)
 				if(visited[x]!=1){
 					if(min+matrix[nextNode][x]<distance[x]){
 						distance[x] = min+matrix[nextNode][x];
