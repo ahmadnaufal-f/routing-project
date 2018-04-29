@@ -6,26 +6,34 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Server {
+public class Server extends Thread{
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		//accept input from client, and return to client.
-		//need socket in server but different from client
-		int number,temp;
-		
-		ServerSocket s1 = new ServerSocket(8888); //mjust same port as the client port
-		Socket sct = s1.accept();
-		Scanner sc = new Scanner(sct.getInputStream());
-		number=sc.nextInt(); //storing number
-		
-		temp = number*2;
-		
-		PrintStream p=new PrintStream(sct.getOutputStream());
-		p.println(temp);
-		
-		
-		
+	
+	
+	ServerSocket s1; //mjust same port as the client port
+	
+	Computer pc;
+	 //storing number
+	public Server(int port,Computer pc) throws IOException{
+		this.s1=new ServerSocket(port);
+		this.pc = pc;
 	}
+	
+	
+	
 
+	
+	public void run() {
+		// TODO Auto-generated method stub
+		try {
+			SocketServer ss = new SocketServer(s1.accept(),pc);
+			ss.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
+
+
