@@ -101,7 +101,7 @@ public class Computation {
 			settled.add(calculateNode); //after it is settled (finding the next node in the path, the node will be put in the settled list
 			
 			nextNode(calculateNode); //now it is time to assess the neighbor of the current node
-			System.out.println(calculateNode);
+			
 		}
 	}
 
@@ -129,8 +129,8 @@ public class Computation {
 			}
 			
 		}
-		order.add(node);
 		
+		order.add(node);
 		return node;
 	}
 
