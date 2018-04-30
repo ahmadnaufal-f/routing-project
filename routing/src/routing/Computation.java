@@ -58,7 +58,7 @@ public class Computation {
 		node = increment.next();												//from the traveled nodes
 		minimum = distance[node]; //initialize to have the first node as the minimum first
 		
-		for(int i=1; i<distance.length;i++) //loop to read all distance within the nodes
+		for(int i=1; i<=distance.length;i++) //loop to read all distance within the nodes
 		{
 			if(unsettled.contains(i)) //validate all the nodes that is not yet traveled
 			{
