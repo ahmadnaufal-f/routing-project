@@ -78,7 +78,7 @@ public class Computation {
 	
 	
 	
-	public void algorithm(int AdjacencyMatrix[][],int source, ArrayList<Integer> ordered)
+	public void algorithm(int source, ArrayList<Integer> ordered)
 	{
 		int calculateNode; //this will be the node that will be processed, after it is processed, it will be placed in the settled sets instead of unsettled
 		
