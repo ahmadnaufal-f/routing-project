@@ -17,7 +17,7 @@ public class Computation {
 		distance = new int[5];
 		settled = new HashSet<Integer>();
 		unsettled = new HashSet<Integer>();
-		adjacencyMatrix = new int[5][5]; 
+		adjacencyMatrix = new int[6][6]; 
 	}
 	
 	public void algorithm(int AdjacencyMatrix[][], int source)
@@ -28,7 +28,8 @@ public class Computation {
 		{
 			for(int j =1; j<=5; j++)
 			{
-				adjacencyMatrix[i][j] = AdjacencyMatrix[i][j];
+				adjacencyMatrix[i][j] = AdjacencyMatrix[i][j]; //since this function requires the input of the adjacency matrix and source
+													//the adjacency matrix in the input and this function must be fitted
 			}
 		}
 		
