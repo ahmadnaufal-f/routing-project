@@ -14,10 +14,10 @@ public class Computation {
 	public Computation(int nodesNumb) //constructor, this is the initialization
 	{
 		nodesNumb = nodesNum; //there are 5 hosts so number of nodes will be 5
-		distance = new int[5];
+		distance = new int[6];
 		settled = new HashSet<Integer>();
 		unsettled = new HashSet<Integer>();
-		adjacencyMatrix = new int[6][6]; 
+		adjacencyMatrix = new int[6][6];  //6 because total number of nodes are 5, added by 1 because it is used to store null at the end
 	}
 	
 	public void algorithm(int AdjacencyMatrix[][], int source)
@@ -35,11 +35,12 @@ public class Computation {
 		
 		for(int i =1; i<=5; i++)
 		{
+			// System.out.println(i);
 			distance[i] = Integer.MAX_VALUE; //make all the distance in each node infinity so that it can be compared later on to find the minimum distance.
 		}
 		
 		unsettled.add(source); //source is added in this list because it is needed to find the minimum distance from the current source
-		distance[source] = 0; //distance from current source to the next neighbor node is 0
+		distance[source] = 0; //distance from current source to the next neighbor node is 0 initially since we haven't calculate who are the neighbors
 		while(!unsettled.isEmpty())
 		{
 			calculateNode = calculateNeighborToFindMinimum(); //this is to find the next node, with the minimum distance, from the current node in the unsettled.
@@ -64,8 +65,8 @@ public class Computation {
 			{
 				if(distance[i] <= minimum)
 				{
-					minimum = distance[i]; //since the distance in all the nodes are all inifinity at first, this condition will be true 
-						//when run at first in order to initilialize the minimum
+					minimum = distance[i]; //since the distance in all the nodes are all infinity at first, this condition will be true 
+						//when run at first in order to initialize the minimum
 					//however, the initialized minimum distance will be compared with other distances later on to find the final minimum
 					node =i; //finally the minimum distance is found, this node will be the one that will be traveled on next	
 				}
@@ -98,7 +99,7 @@ public class Computation {
 								//we must evaluate all of them, if the new distance is greater than the current distance, we finally find the minimum one
 								//and make is as our next destination. This iteration will be repeated until all neighbor nodes have been traveled
 					}
-					unsettled.add(destination); //the node here will be put in the usettled list to be evaulated next
+					unsettled.add(destination); //the node here will be put in the unsettled list to be evaluated next
 					
 				}
 			}
