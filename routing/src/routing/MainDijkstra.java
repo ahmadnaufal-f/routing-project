@@ -13,24 +13,29 @@ public class MainDijkstra {
 		
 		
            
-            AdjacencyMatrix = new int[5][5];
+            AdjacencyMatrix = new int[6][6];
  
             for (int i = 1; i <= nodeNum; i++)
             {
                 for (int j = 1; j <=nodeNum; j++)
                 {
 
-                    System.out.printf("Enter the cost of the edge for the matrix for the source of %d to te destination of %d : ", i, j);
-                    AdjacencyMatrix[i][j] = sc.nextInt();
+                   
                     if (i == j)
                     {
-                        AdjacencyMatrix[i][j] = 0; //if source and destination node traveled is the same, edge will be 0
-                        continue; //to skip the other parts of the code in the loop
+                       //if source and destination node traveled is the same, edge will be 0
+                       //to skip the other parts of the code in the loop
+                    	AdjacencyMatrix[i][j] = 0;
+                        System.out.printf("The edge for the matrix for the source of %d to the destination of %d is 0", i, j);
+                        System.out.println();
+                      
                     }
-                    if (AdjacencyMatrix[i][j] == 0)
+                    else
                     {
-                        AdjacencyMatrix[i][j] = Integer.MAX_VALUE; //0 to be compared with other values in the matrix
+                    	 System.out.printf("Enter the cost of the edge for the matrix for the source of %d to the destination of %d : ", i, j);
+                         AdjacencyMatrix[i][j] = sc.nextInt();
                     }
+                   
                 }
             }
  
