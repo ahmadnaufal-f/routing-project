@@ -2,7 +2,7 @@ package routing;
 
 import java.util.Scanner;
 
-public class MainDijkstra {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -23,8 +23,7 @@ public class MainDijkstra {
                    
                     if (i == j)
                     {
-                       //if source and destination node traveled is the same, edge will be 0
-                       //to skip the other parts of the code in the loop
+     
                     	AdjacencyMatrix[i][j] = 0;
                         System.out.printf("The edge for the matrix for the source of %d to the destination of %d is 0", i, j);
                         System.out.println();
@@ -39,25 +38,29 @@ public class MainDijkstra {
                 }
             }
  
+            do {
             System.out.println("Enter the source node: ");
             source = sc.nextInt();
+            }while(source<1 || source>5);
  
+            do {
             System.out.println("Enter the destination node: ");
             destination = sc.nextInt();
+            }while(destination<1 || destination>5);
  
             Computation dijkstra = new Computation(nodeNum);
             dijkstra.algorithm(AdjacencyMatrix, source);
  
-            System.out.println("The shortest path from " + source + " to " + destination + " is ");
+            
             for (int i = 1; i <= dijkstra.distance.length-1; i++) //subtract by 1 because initially distance[node] is 0
             {
                 if (i == destination)
-                    System.out.println(source + " to " + i + " is "  //to find the destination in the loop to calculate 
+                    System.out.println("The shortest path from" + source + " to " + i + " is "  //to find the destination in the loop to calculate 
                     						//the formula is the current source added by the distance to the destination
                             + dijkstra.distance[i]);
             }
         
-        sc.close();
+        
     }
 }
 		
